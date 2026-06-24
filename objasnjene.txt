@@ -1,0 +1,23 @@
+Za MainActivity.java i content_main.xml — DA, izbrisi SVE i zameni.
+
+To su fajlovi koji imaju dosta automatski generisanog koda od Navigation template-a koji nema veze sa zadatkom. Moj kod je kompletan i samostalan.
+Za build.gradle — NE brisi, samo DODAJ.
+
+Unutar već postojećeg dependencies { } bloka, na kraj (pre zatvorene zagrade }), dodaj moje zavisnosti. Izgleda ovako:
+dependencies {
+    implementation 'androidx.appcompat:appcompat:...'   // ← OVO VEC POSTOJI, ne diraj
+    implementation 'com.google.android.material:...'    // ← OVO VEC POSTOJI, ne diraj
+    // ... ostale postojece zavisnosti ...
+
+    // DODAJ OVO NA KRAJ, PRE ZATVORENE ZAGRADE:
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'androidx.room:room-runtime:2.6.1'
+    annotationProcessor 'androidx.room:room-compiler:2.6.1'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+}   // ← zatvorena zagrada vec postoji
+Za AndroidManifest.xml — NE brisi, samo DODAJ na tačna mesta.
+
+Dozvole idu iznad <application> taga, FileProvider ide unutar <application> posle </activity> taga. Sve ostalo u Manifestu ostavljaš.
+Pet novih klasa (Post, PostDao, AppDatabase, ApiService, RetrofitClient) — kreiras ih kao NOVE fajlove, ne diraju ništa postojeće.
+Dakle jedino što skroz brišeš i zamenjuješ je MainActivity.java i content_main.xml.
