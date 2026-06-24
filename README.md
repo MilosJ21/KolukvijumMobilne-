@@ -1,1 +1,1 @@
-# KolukvijumMobilne- ja sam ciganin 
+# KolukvijumMobilne- 
